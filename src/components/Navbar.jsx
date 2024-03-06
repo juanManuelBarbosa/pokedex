@@ -1,11 +1,11 @@
-import { useState } from "react";
-
+import "./Navbar.css";
 const Navbar = ({ searchTerm, setSearchTerm }) => {
     
 
 
     return (
         <input
+        className="buscador"
         type="text"
         placeholder="Busca tu pokemon favorito"
         value={searchTerm}
