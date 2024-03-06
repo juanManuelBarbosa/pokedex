@@ -1,18 +1,17 @@
 import { useState , useEffect } from "react"
 import Card from "./Card"
+import Navbar from "./Navbar"
 
 
-const pokemonList = ({searchTerms}) =>{
+const pokemonList = ({searchTerm , setSeachTerm}) =>{
   
     const [pokemons , setPokemons] = useState([])
-
-    const [searchTerm, setSearchTerm] = useState("");
 
     //se recolecta en forma de promesa , la informacion de todos los pokemon 
     useEffect(()=>{
       const getPokemons = async () =>{
         //recuperamos el listado de pokemones 
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=20");
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=1000");
         const pokemonList = await response.json()
         const results = pokemonList.results; 
         
@@ -31,20 +30,15 @@ const pokemonList = ({searchTerms}) =>{
 
 
     const filteredPokemons = pokemons.filter(pokemon =>
-      pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+      pokemon.name.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
     return(
-      <div className="Container">
-      <input
-          type="text"
-          placeholder="Search Pokemon"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      {filteredPokemons.map((pokemon, index) => (
-          <Card key={index} title={pokemon.name} description={pokemon.id} img={pokemon.sprites.front_default} />
-      ))}
-  </div>
+        <div className="Container">
+            
+            {filteredPokemons.map((pokemon, index) => (
+                <Card key={index} title={pokemon.name} description={pokemon.id} img={pokemon.sprites.front_default} />
+            ))}
+        </div>
     )
 }
 

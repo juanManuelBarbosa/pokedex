@@ -7,18 +7,15 @@ function App() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleNavbarSearch = (term)=>{
-    setSearchTerm(term); 
     
-  }; 
 
   return ( 
     <Fragment> 
       <div >
         
       <h1 className="App">Pokedex</h1>
-      <Navbar onSearch ={handleNavbarSearch}/ >
-      <PokemonList searchTerm= {searchTerm}/ >
+      <Navbar  searchTerm={searchTerm} setSearchTerm={setSearchTerm}/ >
+      <PokemonList searchTerm={searchTerm} setSearchTerm={setSearchTerm} / >
       </div>
   </Fragment>
   )
