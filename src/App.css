@@ -1,0 +1,13 @@
+.App{
+    text-align: center;
+}
+
+.Container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center
+}
+
