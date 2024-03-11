@@ -1,11 +1,50 @@
 .Card{
     width: 300px;
+    margin: 5px  50px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #333;
-    background-color: rgb(177, 214, 238);
-    padding: 10px;
+    background: rgb(180,180,180);
+    background: linear-gradient(180deg, rgba(180,180,180,1) 0%, rgba(192,210,198,0.5393474088291746) 48%, rgba(247,247,247,1) 100%);
     text-align: center;
     border: 3px solid #000000;
     color: #2a2a2a;
 }
+.stats-container{
+    padding: 8px;
+    background: rgb(205,242,242);
+background: radial-gradient(circle, rgba(205,242,242,1) 0%, rgba(117,99,241,0.12211221122112215) 100%);
+    border: 2px solid #000;
+    margin: 5px;
+    box-shadow: 2px 3px 1px #696767;
+}
+
+.stats{
+    display: flex;
+    justify-content:space-between;
+    margin-top: -10px;
+}
+
+h2{
+    font-size: 40px;
+    padding: 0;
+    margin-top: -10px;
+    
+    
+}
+p{
+    font-size: 15px;
+    margin: 2px;
+}
+
+img{
+    margin-top: -40px;
+    width: 200px;
+    background: rgb(255,0,0);
+    background: rgb(255,0,0);
+    background: linear-gradient(180deg, rgba(255,0,0,1) 0%, rgba(255,4,4,1) 48%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 53%, rgba(255,255,255,1) 53%, rgba(254,254,254,1) 100%);    border-radius: 50%;
+    border: 3px solid black;
+    box-shadow: 4px 4px 4px #696767;
+
+}
+
 
