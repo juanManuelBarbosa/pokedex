@@ -1,0 +1,13 @@
+.LoadingContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.messageLoadingContainer{
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(76, 82, 87);
+    margin: 40px;
+}

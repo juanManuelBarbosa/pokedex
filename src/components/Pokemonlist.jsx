@@ -1,15 +1,16 @@
 import { useState , useEffect } from "react"
 import Card from "./Card"
-import Navbar from "./Navbar"
+import './Pokemonlist.css'
+import Loading from './Loading.jsx'
 
+const pokemonList = ({searchTerm  }) =>{
 
-const pokemonList = ({searchTerm }) =>{
-  
     const [pokemons , setPokemons] = useState([])
-
+    const [loading, setLoading] = useState(true);
     //se recolecta en forma de promesa , la informacion de todos los pokemon 
     useEffect(()=>{
       const getPokemons = async () =>{
+        setLoading(true);
         //recuperamos el listado de pokemones 
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=1008");
         const pokemonList = await response.json()
@@ -22,16 +23,21 @@ const pokemonList = ({searchTerm }) =>{
           })
         )
         setPokemons(pokemonDetails)     
-
+        setLoading(false);
+        
       }
-
       getPokemons()
+      
     }, [])
-
 
     const filteredPokemons = pokemons.filter(pokemon =>
       pokemon.name.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
+
+    if (loading) {
+      return <Loading/>
+  }
+
     return(
         <div className="Container">
             
